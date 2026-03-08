@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patrimônio Imaterial - Memória de Agulha</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <div class="menu-icon" onclick="abrirMenu()" style="cursor: pointer; font-size: 24px;">☰</div>
+
+        <nav class="menu-navegacao" id="meuMenu">
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+
+                <li class="item-com-submenu">
+                    <a href="patrimonioImaterial.html">Patrimônio Imaterial ▾</a>
+                    <ul class="submenu">
+                        <li><a href="rendaBarafunda.html">Renda Barafunda</a></li>
+                        <li><a href="bainhaAberta.html">Bainha Aberta</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="exposicoes.html">Exposições</a></li>
+
+                <li class="item-com-submenu">
+                    <a href="estacaoCriativa.html">Estação Criativa ▾</a>
+                    <ul class="submenu">
+                        <li><a href="produtos.html">Produtos</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div class="logo-container">
+            <a href="index.html" class="link-logo">
+                <img src="assets/img/Arquivos_Site/logo c sombra-2x.png" alt="Logo Memória de Agulha" class="logo-circulo">
+                <span class="titulo-site">AMA - Associação Memória de Agulha</span>
+            </a>
+        </div>
+
+        <div class="redes-sociais">
+            <a href="https://www.instagram.com/memoriadeagulha" target="_blank">
+                <img src="assets/icons/redesSociais/logo_instagram.svg" alt="Instagram">
+            </a>
+            <a href="https://www.youtube.com/@memoriadeagulha5497" target="_blank">
+                <img src="assets/icons/redesSociais/logo_youtube.svg" alt="Youtube">
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="banner-patrimonio-topo"></section>
+
+        <section class="texto-patrimonio">
+            <h2>Patrimônio Imaterial</h2>
+            
+            <div class="conteudo-texto-patrimonio">
+                <p>Contar uma história tem a ver com tecer. Quem cria histórias costura personagens, borda fatos, entrelaça ações e vai acrescentando pontos. Depois enredo, trama, tessituras. Nós, do Memória de Agulha, especialmente, acreditamos que uma simples agulha e um bocado de linha têm o poder de fazer história. Podem mudar trajetórias e gerar renda, empoderamento e auto-estima. Das pessoas e dos lugares.</p>
+                <br>
+                <p>Quando nós começamos a nossa associação, o desejo era criar e vender produtos feitos à mão. Mas não eram simples manualidades. Eram produtos com história, ancestralidade, tradição. Percebemos que éramos guardiãs de técnicas que estavam se perdendo com o tempo. E resolvemos investigar ainda mais, puxar o fio dessa história, ensinar a outras mulheres. Foi então que nos demos conta: algumas dessas técnicas estavam intimamente ligadas à história do nosso lugar. Sem perceber, estávamos fazendo resgate de patrimônio cultural imaterial de São Gonçalo do Bação.</p>
+                <br>
+                <p>Parece complicado, mas é tão simples e bonito como o ponto mais tradicional do Bação, a bainha aberta. Primeiro, é preciso desconstruir. Puxar um fio no tecido e botar reparo. Cada desfiar amplia a visão. E abre caminho a um novo ponto que reorganiza a trama com frescor e poesia. Ainda que a linha utilizada fosse aquele fio mesmo puxado do tecido, tudo agora se redesenha, ganha alma nova e outro valor. Entendemos que nossa vocação hoje é entrelaçar passado e futuro.</p>
+            </div>
+        </section>
+
+        <section class="banner-patrimonio-base"></section>
+    </main>
+
+    <script>
+        function abrirMenu() {
+            var menu = document.getElementById("meuMenu");
+            menu.classList.toggle("ativo");
+        }
+    </script>
+</body>
+</html>

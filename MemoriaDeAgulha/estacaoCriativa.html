@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estação Criativa - Memória de Agulha</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="cabecalho">
+        <div class="menu-icon" onclick="abrirMenu()" style="cursor: pointer; font-size: 24px;">☰</div>
+
+        <nav class="menu-navegacao" id="meuMenu">
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+
+                <li class="item-com-submenu">
+                    <a href="patrimonioImaterial.html">Patrimônio Imaterial ▾</a>
+                    <ul class="submenu">
+                        <li><a href="rendaBarafunda.html">Renda Barafunda</a></li>
+                        <li><a href="bainhaAberta.html">Bainha Aberta</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="exposicoes.html">Exposições</a></li>
+
+                <li class="item-com-submenu">
+                    <a href="estacaoCriativa.html">Estação Criativa ▾</a>
+                    <ul class="submenu">
+                        <li><a href="produtos.html">Produtos</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div class="logo-container">
+            <a href="index.html" class="link-logo">
+                <img src="assets/img/Arquivos_Site/logo c sombra-2x.png" alt="Logo Memória de Agulha" class="logo-circulo">
+                <span class="titulo-site">AMA - Associação Memória de Agulha</span>
+            </a>
+        </div>
+
+        <div class="redes-sociais">
+            <a href="https://www.instagram.com/memoriadeagulha" target="_blank">
+                <img src="assets/icons/redesSociais/logo_instagram.svg" alt="Instagram">
+            </a>
+            <a href="https://www.youtube.com/@memoriadeagulha5497" target="_blank">
+                <img src="assets/icons/redesSociais/logo_youtube.svg" alt="Youtube">
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="banner-estacao">
+            <div class="banner-conteudo">
+                <h1>Estação Criativa</h1>
+                <p>Nossa casa na antiga estação de trem de Itabirito.</p>
+            </div>
+        </section>
+
+        <section class="sobre-estacao">
+            <p>Um espaço de resgate histórico e valorização cultural. Na Estação Criativa, os trilhos do passado se encontram com as linhas do presente. Aqui, expomos e comercializamos peças exclusivas de artesanato que contam a história de Itabirito e de nossa gente, tecidas com afeto pelas mãos de nossas artesãs.</p>
+        </section>
+
+        <section class="vitrine-produtos">
+            <h2>Nossas Peças</h2>
+            
+            <div class="grade-produtos">
+                
+                <div class="cartao-produto">
+                    <img src="assets/img/produto-1.jpg" alt="Bolsa em Macramê" class="img-produto">
+                    <div class="info-produto">
+                        <h3>Bolsa Trem de Minas</h3>
+                        <p>Bolsa artesanal feita em macramê com fios de algodão cru. Inspirada nas tramas das antigas bagageiras dos vagões.</p>
+                    </div>
+                </div>
+
+                <div class="cartao-produto">
+                    <img src="assets/img/produto-2.jpg" alt="Toalha Bainha Aberta" class="img-produto">
+                    <div class="info-produto">
+                        <h3>Caminho de Mesa Bação</h3>
+                        <p>Peça delicada com bordado em bainha aberta, perfeita para decorar sua mesa com um toque de ancestralidade.</p>
+                    </div>
+                </div>
+
+                <div class="cartao-produto">
+                    <img src="assets/img/produto-3.jpg" alt="Estojo Costura" class="img-produto">
+                    <div class="info-produto">
+                        <h3>Estojo de Ofícios</h3>
+                        <p>Estojo prático em patchwork para guardar linhas e agulhas, feito com retalhos reaproveitados da comunidade.</p>
+                    </div>
+                </div>
+
+                </div>
+        </section>
+    </main>
+
+    <script>
+        function abrirMenu() {
+            var menu = document.getElementById("meuMenu");
+            menu.classList.toggle("ativo");
+        }
+    </script>
+</body>
+</html>

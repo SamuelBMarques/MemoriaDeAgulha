@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - Memória de Agulha</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="cabecalho">
+        <div class="menu-icon" onclick="abrirMenu()" style="cursor: pointer; font-size: 24px;">☰</div>
+
+        <nav class="menu-navegacao" id="meuMenu">
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+
+                <li class="item-com-submenu">
+                    <a href="patrimonioImaterial.html">Patrimônio Imaterial ▾</a>
+                    <ul class="submenu">
+                        <li><a href="rendaBarafunda.html">Renda Barafunda</a></li>
+                        <li><a href="bainhaAberta.html">Bainha Aberta</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="exposicoes.html">Exposições</a></li>
+
+                <li class="item-com-submenu">
+                    <a href="estacaoCriativa.html">Estação Criativa ▾</a>
+                    <ul class="submenu">
+                        <li><a href="produtos.html">Produtos</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div class="logo-container">
+            <a href="index.html" class="link-logo">
+                <img src="assets/img/Arquivos_Site/logo c sombra-2x.png" alt="Logo Memória de Agulha" class="logo-circulo">
+                <span class="titulo-site">AMA - Associação Memória de Agulha</span>
+            </a>
+        </div>
+
+        <div class="redes-sociais">
+            <a href="https://www.instagram.com/memoriadeagulha" target="_blank">
+                <img src="assets/icons/redesSociais/logo_instagram.svg" alt="Instagram">
+            </a>
+            <a href="https://www.youtube.com/@memoriadeagulha5497" target="_blank">
+                <img src="assets/icons/redesSociais/logo_youtube.svg" alt="Youtube">
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="genealogia">
+            <div class="genealogia-conteudo">
+                <h2 class="titulo-genealogia">NOSSA GENEALOGIA</h2>
+                
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/SEU_ID_DO_VIDEO_AQUI" title="Vídeo Genealogia" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="integrantes">
+            <p class="citacao-integrantes">"Somos uma associação de mulheres artesãs, com foco no ensino da arte e dos ofícios têxteis, na geração de trabalho e renda, na cultura e na educação patrimonial."</p>
+            
+            <div class="lista-integrantes">
+                <div class="cartao-integrante">
+                    <div class="foto-placeholder"></div> 
+                    <h3>Vânia Carvalho</h3>
+                    <p>Idealizadora e membro da Associação Memória de Agulha desde 2008. É master quilting, artesã de Patchwork, de Costura Criativa e de Bordado em Bainha Aberta.</p>
+                </div>
+
+                <div class="cartao-integrante">
+                    <div class="foto-placeholder"></div>
+                    <h3>Ivanilde de Carvalho</h3>
+                    <p>Artesã com expertise em Crochê e Bordado em Bainha Aberta. É graduada em Recursos Humanos. Desde 2008 integra a Associação Memória de Agulha.</p>
+                </div>
+
+                <div class="cartao-integrante">
+                    <div class="foto-placeholder"></div>
+                    <h3>Juliana Marques</h3>
+                    <p>Professora, artesã, desenvolvedora de produtos e projetos relacionados ao artesanato têxtil e à preservação do patrimônio cultural.</p>
+                </div>
+
+                <div class="cartao-integrante">
+                    <div class="foto-placeholder"></div>
+                    <h3>Maristela</h3>
+                    <p>Membro da Associação Memória de Agulha, desde 2008, com expertise em Macramê e Bordado em Bainha Aberta.</p>
+                </div>
+
+                <div class="cartao-integrante">
+                    <div class="foto-placeholder"></div>
+                    <h3>Regina Carvalho</h3>
+                    <p>Membro da Associação Memória de Agulha, desde 2008, com expertise em Macramê e Bordado em Bainha Aberta.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function abrirMenu() {
+            var menu = document.getElementById("meuMenu");
+            menu.classList.toggle("ativo");
+        }
+    </script>
+</body>
+</html>

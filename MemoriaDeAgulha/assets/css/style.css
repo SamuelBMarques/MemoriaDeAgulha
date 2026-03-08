@@ -1,0 +1,628 @@
+/* 1. VARIÁVEIS DE COR E FONTE */
+:root {
+    --azul-principal: #3865C9; /* O azul que forneceu */
+    --branco: #ffffff;
+    --texto-escuro: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte temporária */
+}
+
+.cabecalho {
+    background-color: var(--azul-principal);
+    color: var(--branco);
+    display: flex; /* Coloca os itens (menu, logo, redes) lado a lado */
+    justify-content: space-between; /* Espalha um para a esquerda, um ao centro, um à direita */
+    align-items: center; /* Alinha tudo verticalmente ao centro */
+    padding: 15px 50px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaço entre a logo e a linha/texto */
+}
+
+.link-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none; /* Tira o sublinhado do link */
+    color: var(--branco); /* Mantém o texto branco */
+}
+
+.logo-circulo {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%; /* Torna quadrado num círculo perfeito */
+}
+
+.titulo-site {
+    font-size: 1.1rem;
+    border-left: 1px solid var(--branco); /* A linha branca fina a separar a logo do texto */
+    padding-left: 15px;
+}
+
+.redes-sociais {
+    display: flex;
+    gap: 15px; /* Espaço entre os ícones sociais */
+    font-size: 1.2rem;
+}
+
+/* Tamanho padrão para os ícones das redes sociais */
+.redes-sociais img {
+    width: 24px;
+    height: 24px;
+    /* Se os SVGs que você baixar vierem pretos, essa linha abaixo tenta deixá-los brancos. 
+       O ideal é baixar já na cor branca se o site permitir. */
+    filter: invert(100%); 
+    transition: transform 0.2s ease; /* Prepara a animação suave */
+}
+
+/* Efeito quando o mouse passa por cima do ícone (ele dá um leve salto) */
+.redes-sociais a:hover img {
+    transform: translateY(-3px);
+}
+
+.seccao-destaque {
+    display: flex;
+    min-height: 80vh;
+    background-image: url('../img/Arquivos_Site/15.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.conteudo-texto {
+    position: relative; 
+    flex: 1;
+    padding: 80px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    background-color: var(--branco);
+    z-index: 2; 
+}
+
+.conteudo-texto h1 {
+    color: var(--azul-principal); /* Usa a cor azul no título */
+    font-size: 3rem;
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+.conteudo-texto p {
+    color: var(--texto-escuro);
+    font-size: 1.2rem;
+    line-height: 1.5;
+    max-width: 80%; /* Para o texto não ir até à ponta direita */
+}
+
+.conteudo-imagem {
+    flex: 1;
+    background: transparent;
+    border-radius: 0;
+}
+
+.menu-navegacao {
+    display: none; /* Escondido por padrão */
+    position: absolute; /* Flutua por cima do resto do site */
+    top: 70px; /* Ajuste se o menu ficar muito alto ou muito baixo */
+    left: 20px;
+    background-color: var(--azul-principal);
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+    z-index: 1000; /* Garante que fica por cima das imagens */
+}
+
+/* Quando o JavaScript adiciona a classe .ativo, o menu aparece */
+.menu-navegacao.ativo {
+    display: block; 
+}
+
+.menu-navegacao ul {
+    list-style-type: none; /* Tira as bolinhas da lista */
+}
+
+.menu-navegacao ul li {
+    margin-bottom: 15px;
+}
+
+.menu-navegacao ul li a {
+    color: var(--branco);
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.menu-navegacao ul li a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* 6. ESTILOS DA SECÇÃO QUEM SOMOS */
+.quem-somos {
+    display: flex; /* Coloca os blocos lado a lado */
+    min-height: 50vh; /* Altura mínima da secção */
+}
+
+/* Bloco Azul */
+.quem-somos-esquerda {
+    flex: 1; /* Ocupa 50% do espaço */
+    background-color: var(--azul-principal);
+    color: var(--branco);
+    padding: 80px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.quem-somos-esquerda h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-weight: normal;
+}
+
+.quem-somos-esquerda p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.link-saiba-mais {
+    color: #FFD700; /* Cor amarelinha/dourada como no seu design */
+    text-decoration: none;
+    align-self: flex-end; /* Empurra o botão "Saiba mais" para a direita */
+    font-size: 1.1rem;
+}
+
+.link-saiba-mais:hover {
+    text-decoration: underline;
+}
+
+.quem-somos-direita {
+    flex: 1; /* Ocupa os outros 50% do espaço */
+    background-color: var(--branco);
+    color: #555555; /* Um cinza escuro para não cansar a vista */
+    padding: 80px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1rem;
+    line-height: 1.8;
+    text-align: justify; /* Deixa as margens do texto retinhas */
+}
+
+.curva-s {
+    position: absolute;
+    top: 0;
+    right: -230px; /* Empurra a onda para fora da caixa de texto, sobrepondo a foto */
+    width: 230px;  /* A largura do "avanço" da onda */
+    height: 100%;  /* Faz a onda esticar até o fim da tela */
+}
+
+
+/* =========================================
+   ESTILOS DA PÁGINA: SOBRE NÓS
+   ========================================= */
+
+/* --- 1. Secção Genealogia --- */
+.genealogia {
+    /* Mude o nome do arquivo abaixo para o nome real da sua imagem de fundo */
+    background-image: url('../img/Arquivos_Site/Genealogia.jpg'); 
+    background-size: cover;
+    background-position: left center;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Empurra o conteúdo (vídeo) para a direita */
+    padding: 50px 10%;
+}
+
+.genealogia-conteudo {
+    width: 60%; /* Faz o vídeo ocupar apenas o lado direito da tela */
+    max-width: 800px;
+    text-align: right;
+}
+
+.titulo-genealogia {
+    color: var(--azul-principal);
+    font-size: 2.5rem;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+/* O quadrado preto e o vídeo */
+.video-container {
+    background-color: #000;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Mantém a proporção retangular clássica de vídeo */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* --- 2. Secção Integrantes --- */
+.integrantes {
+    background-color: var(--branco);
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.citacao-integrantes {
+    color: var(--azul-principal);
+    font-size: 1.4rem;
+    font-weight: bold;
+    max-width: 800px;
+    margin: 0 auto 60px auto; /* Centraliza a citação e dá espaço embaixo */
+    line-height: 1.5;
+}
+
+/* O segredo da grade perfeita e alinhada */
+.lista-integrantes {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens pulem para a linha de baixo */
+    gap: 40px; /* Espaço entre os cartões */
+    justify-content: center; 
+}
+
+.cartao-integrante {
+    /* Define o tamanho de cada cartão para caberem 3 por linha confortavelmente */
+    width: calc(33.333% - 40px); 
+    min-width: 250px; /* Impede que fiquem muito finos em telas menores */
+    max-width: 320px;
+    display: flex;
+    flex-direction: column; /* Faz o conteúdo fluir de cima para baixo */
+    text-align: left;
+}
+
+/* O quadrado cinza temporário das fotos */
+.foto-placeholder {
+    width: 100%;
+    aspect-ratio: 3 / 4; 
+    background-color: #f0f0f0;
+    margin-bottom: 20px;
+}
+
+/* Se você usar a tag <img> em vez da div placeholder, use esta regra: */
+.cartao-integrante img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.cartao-integrante h3 {
+    color: var(--azul-principal);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.cartao-integrante p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    flex-grow: 1; /* Garante que as caixas de texto empurrem a altura para todos ficarem iguais */
+}
+
+/* =========================================
+   ESTILOS DA PÁGINA: PROJETOS
+   ========================================= */
+
+/* --- 1. Introdução (Topo lilás/azul claro) --- */
+.intro-projetos {
+    background-color: #EBF0FA; /* Uma cor clara inspirada na sua imagem */
+    padding: 80px 20%; /* Empurra o texto para o centro */
+    text-align: center;
+}
+
+.intro-projetos h2 {
+    color: var(--azul-principal);
+    font-size: 3rem;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+
+.intro-projetos p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* --- 2. Lista de Projetos (Efeito Alternado) --- */
+.lista-projetos {
+    display: flex;
+    flex-direction: column; /* Coloca um projeto debaixo do outro */
+}
+
+.projeto {
+    display: flex; /* Coloca o texto e a imagem lado a lado */
+    min-height: 50vh; /* Cada projeto ocupará pelo menos metade da tela de altura */
+}
+
+/* Área do Texto */
+.projeto-texto {
+    flex: 1; /* Ocupa 50% da largura */
+    padding: 60px 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Centraliza o bloco de texto */
+    text-align: center; /* Centraliza o texto em si */
+    background-color: var(--branco);
+}
+
+.projeto-texto h3 {
+    color: var(--azul-principal);
+    font-size: 2.2rem;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+
+.projeto-texto p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.8;
+    max-width: 450px; /* Impede que as linhas de texto fiquem muito compridas */
+}
+
+/* Área da Imagem */
+.projeto-imagem {
+    width: 50%; /* Ocupa os outros 50% da largura */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem amassar */
+}
+
+.projeto:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* =========================================
+   ESTILOS DA PÁGINA: ESTAÇÃO CRIATIVA
+   ========================================= */
+
+/* --- Banner Principal --- */
+.banner-estacao {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/Estacao/DSC_0695.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 40vh; /* Altura menor que as outras páginas para focar nos produtos */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--branco);
+}
+
+.banner-conteudo h1 {
+    font-size: 3.5rem;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.banner-conteudo p {
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+/* --- Sobre o Espaço --- */
+.sobre-estacao {
+    background-color: var(--branco);
+    padding: 60px 20%;
+    text-align: center;
+}
+
+.sobre-estacao p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* --- Vitrine de Produtos (A Grade Mágica) --- */
+.vitrine-produtos {
+    background-color: #f9f9f9; /* Um fundo levemente cinza para destacar os cartões brancos */
+    padding: 60px 10%;
+}
+
+.vitrine-produtos h2 {
+    text-align: center;
+    color: var(--azul-principal);
+    font-size: 2.5rem;
+    font-weight: normal;
+    margin-bottom: 50px;
+}
+
+.grade-produtos {
+    display: grid;
+    /* Isso cria colunas flexíveis: no mínimo 300px de largura. Se sobrar espaço, ele divide igualmente (1fr) */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px; /* Espaço entre os produtos */
+}
+
+/* --- Cartão Individual do Produto --- */
+.cartao-produto {
+    background-color: var(--branco);
+    border-radius: 8px;
+    overflow: hidden; /* Garante que a imagem não vaze para fora dos cantos arredondados */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Prepara uma animação suave */
+}
+
+/* Efeito ao passar o mouse por cima do produto */
+.cartao-produto:hover {
+    transform: translateY(-10px); /* Faz o cartão flutuar um pouquinho para cima */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.img-produto {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Força a imagem a ser um quadrado perfeito */
+    object-fit: cover;
+    border-bottom: 3px solid var(--azul-principal); /* Um detalhe charmoso de design */
+}
+
+.info-produto {
+    padding: 25px;
+}
+
+.info-produto h3 {
+    color: var(--texto-escuro);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.info-produto p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* =========================================
+   ESTILOS DOS SUBMENUS (Dropdown)
+   ========================================= */
+
+/* Esconde o submenu por padrão e dá-lhe uma formatação */
+.submenu {
+    display: none; /* Mantém escondido */
+    margin-top: 10px;
+    margin-left: 20px; /* Cria um recuo (indentação) para mostrar que está dentro */
+    padding-left: 10px;
+    border-left: 2px solid rgba(255, 255, 255, 0.3); /* Uma linha subtil à esquerda */
+}
+
+/* Diminui um pouco o texto dos submenus para não competir com o menu principal */
+.submenu li {
+    margin-bottom: 12px;
+}
+
+.submenu li a {
+    font-size: 1rem;
+    color: #e0e0e0; /* Um branco ligeiramente mais acinzentado */
+}
+
+.submenu li a:hover {
+    color: #FFD700; /* Fica amarelo/dourado quando passamos o rato */
+}
+
+/* A MÁGICA: Quando passamos o rato (hover) no item principal, o submenu aparece */
+.item-com-submenu:hover .submenu {
+    display: block;
+    animation: deslizarBaixo 0.3s ease; /* Animação suave que criaremos abaixo */
+}
+
+/* Pequena animação para o menu não aparecer de forma brusca */
+@keyframes deslizarBaixo {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   ESTILOS DA PÁGINA: PATRIMÔNIO IMATERIAL
+   ========================================= */
+
+/* A imagem das montanhas */
+.banner-patrimonio-topo {
+    background-image: url('../img/Arquivos_Site/são\ gonçalo.PNG'); 
+    background-size: cover;
+    background-position: center;
+    height: 45vh; /* Ocupa 45% da altura da tela */
+    width: 100%;
+}
+
+/* O bloco branco do meio */
+.texto-patrimonio {
+    background-color: var(--branco);
+    padding: 80px 15%; /* Mantém o texto bem centralizado com margens generosas */
+    text-align: center;
+}
+
+.texto-patrimonio h2 {
+    color: var(--azul-principal);
+    font-size: 2.8rem;
+    font-weight: normal;
+    margin-bottom: 40px;
+}
+
+/* O texto em si com a cor característica */
+.conteudo-texto-patrimonio p {
+    color: #D48C6A; /* Uma cor cobre/barro que imita a sua imagem */
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: justify; /* Deixa as bordas do texto retinhas */
+}
+
+/* A imagem da casa no final */
+.banner-patrimonio-base {
+    /* Mude para o nome exato da sua imagem da casa de baixo */
+    background-image: url('../img/patrimonio-casa.jpg'); 
+    background-size: cover;
+    background-position: center bottom;
+    height: 60vh;
+    width: 100%;
+}
+
+/* =========================================
+   ESTILOS DAS SUBPÁGINAS DE TÉCNICAS 
+   (Renda Barafunda / Bainha Aberta)
+   ========================================= */
+
+/* --- Texto Introdutório --- */
+.historia-tecnica {
+    background-color: var(--branco);
+    padding: 80px 15% 40px 15%; /* Muito espaço nas laterais, menos em baixo */
+    text-align: center;
+}
+
+.historia-tecnica h2 {
+    color: var(--azul-principal);
+    font-size: 3rem;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+
+.texto-tecnica p {
+    color: #555;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* --- Secção do Vídeo --- */
+.video-destaque-tecnica {
+    background-color: var(--branco);
+    padding: 0 15% 60px 15%; /* Adiciona espaço apenas por baixo do vídeo */
+    display: flex;
+    justify-content: center;
+}
+
+/* --- Galeria de Fotos (3 imagens lado a lado) --- */
+.galeria-tecnica {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colunas automáticas */
+    gap: 20px;
+    padding: 0 10% 80px 10%;
+    background-color: var(--branco);
+}
+
+.foto-tecnica {
+    width: 100%;
+    aspect-ratio: 4 / 3; /* Proporção de fotografia paisagem clássica */
+    object-fit: cover; /* Não deixa a foto deformar */
+    border-radius: 8px; /* Cantos levemente arredondados */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}

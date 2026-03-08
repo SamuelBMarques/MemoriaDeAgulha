@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos - Memória de Agulha</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <div class="menu-icon" onclick="abrirMenu()" style="cursor: pointer; font-size: 24px;">☰</div>
+
+        <nav class="menu-navegacao" id="meuMenu">
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+
+                <li class="item-com-submenu">
+                    <a href="patrimonioImaterial.html">Patrimônio Imaterial ▾</a>
+                    <ul class="submenu">
+                        <li><a href="rendaBarafunda.html">Renda Barafunda</a></li>
+                        <li><a href="bainhaAberta.html">Bainha Aberta</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="exposicoes.html">Exposições</a></li>
+
+                <li class="item-com-submenu">
+                    <a href="estacaoCriativa.html">Estação Criativa ▾</a>
+                    <ul class="submenu">
+                        <li><a href="produtos.html">Produtos</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div class="logo-container">
+            <a href="index.html" class="link-logo">
+                <img src="assets/img/Arquivos_Site/logo c sombra-2x.png" alt="Logo Memória de Agulha" class="logo-circulo">
+                <span class="titulo-site">AMA - Associação Memória de Agulha</span>
+            </a>
+        </div>
+
+        <div class="redes-sociais">
+            <a href="https://www.instagram.com/memoriadeagulha" target="_blank">
+                <img src="assets/icons/redesSociais/logo_instagram.svg" alt="Instagram">
+            </a>
+            <a href="https://www.youtube.com/@memoriadeagulha5497" target="_blank">
+                <img src="assets/icons/redesSociais/logo_youtube.svg" alt="Youtube">
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="intro-projetos">
+            <h2>Projetos</h2>
+            <p>O Memória de Agulha preza pelo tempo das coisas. Aprendemos e nos inspiramos nas mudanças de estação, nos ciclos da vida, na maturação de cada projeto e no percurso dos saberes ancestrais até chegarem às nossas mãos. Sabemos que, para você, o tempo também é diferente para vivenciar cada experiência. Por isso, ofertamos vivências em camadas.</p>
+        </section>
+
+        <section class="lista-projetos">
+            
+            <article class="projeto">
+                <div class="projeto-texto">
+                    <h3>Atelier</h3>
+                    <p>Nosso espaço atelier-escola fica de frente para a Igreja Matriz. Esperamos por você, de portas abertas e janelas ornadas, tapete de grama verdinha estendido até a rua e a moldura de dois flamboyants quase sempre floridos. Estamos na Praça Padre Bernardo Firmino, nº 10, São Gonçalo do Bação, CEP: 35.459-000. Itabirito-MG.</p>
+                </div>
+                <img src="assets/img/Home/ALE04662.jpg" alt="Foto do Atelier" class="projeto-imagem">
+            </article>
+
+            <article class="projeto">
+                <div class="projeto-texto">
+                    <h3>Experiência de imersão</h3>
+                    <p>Aprender uma nova técnica, tecer relações, reconectar-se. Já reparou que, ao guiar a linha, os movimentos da mão com a agulha – seja ela qual for – sempre apontam para o coração? Costurar nos alinha com nossos próprios sentimentos e pensamentos. E nós te convidamos a viver essa experiência aqui...</p>
+                </div>
+                <img src="assets/img/projeto-imersao.jpg" alt="Foto da Imersão" class="projeto-imagem">
+            </article>
+
+            </section>
+    </main>
+
+    <script>
+        function abrirMenu() {
+            var menu = document.getElementById("meuMenu");
+            menu.classList.toggle("ativo");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memória de Agulha</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <div class="menu-icon" onclick="abrirMenu()" style="cursor: pointer; font-size: 24px;">☰</div>
+
+        <nav class="menu-navegacao" id="meuMenu">
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+
+                <li class="item-com-submenu">
+                    <a href="patrimonioImaterial.html">Patrimônio Imaterial ▾</a>
+                    <ul class="submenu">
+                        <li><a href="rendaBarafunda.html">Renda Barafunda</a></li>
+                        <li><a href="bainhaAberta.html">Bainha Aberta</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="exposicoes.html">Exposições</a></li>
+
+                <li class="item-com-submenu">
+                    <a href="estacaoCriativa.html">Estação Criativa ▾</a>
+                    <ul class="submenu">
+                        <li><a href="produtos.html">Produtos</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div class="logo-container">
+            <a href="index.html" class="link-logo">
+                <img src="assets/img/Arquivos_Site/logo c sombra-2x.png" alt="Logo Memória de Agulha" class="logo-circulo">
+                <span class="titulo-site">AMA - Associação Memória de Agulha</span>
+            </a>
+        </div>
+
+        <div class="redes-sociais">
+            <a href="https://www.instagram.com/memoriadeagulha" target="_blank">
+                <img src="assets/icons/redesSociais/logo_instagram.svg" alt="Instagram">
+            </a>
+            <a href="https://www.youtube.com/@memoriadeagulha5497" target="_blank">
+                <img src="assets/icons/redesSociais/logo_youtube.svg" alt="Youtube">
+            </a>
+        </div>
+    </header>
+
+    <main class="seccao-destaque">
+        <div class="conteudo-texto">
+            <h1>"Estamos aonde quer que nossas manualidades alcançam chegar."</h1>
+            <p>Sobretudo, estamos e somos São Gonçalo do Bação, distrito de Itabirito, Minas Gerais, Brasil. Conheça nossa história.</p>
+            
+            <svg class="curva-s" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0,0 L100,0 C100,50 0,50 0,100 Z" fill="#ffffff"></path>
+            </svg>
+        </div>
+
+        <div class="conteudo-imagem">
+            </div>
+    </main>
+
+    <section class="quem-somos">
+        
+        <div class="quem-somos-esquerda">
+            <h2>Quem somos?</h2>
+            <p>"Somos uma associação de mulheres artesãs, com foco no ensino da arte e dos ofícios têxteis, na geração de trabalho e renda, na cultura e na educação patrimonial."</p>
+            <a href="sobre.html" class="link-saiba-mais">Saiba mais</a>
+        </div>
+
+        <div class="quem-somos-direita">
+            <p>A Associação Memória de Agulha nasceu em 2008. Mas nossa relação com os fazeres manuais é anterior, já perpassa gerações. Somos mulheres fortes, determinadas, talentosas e felizes. Irmãs de sangue e de coração que, juntas, trabalhamos para nossa alegria e para o bem comum.</p>
+            <br>
+            <p>Hoje somos um coletivo, uma rede unida pela criatividade, pelos saberes e fazeres. E principalmente pelo desejo de seguirmos produzindo e propagando o afeto e a beleza por meio de nossos produtos, oficinas, palestras e vivências.</p>
+        </div>
+
+    </section>
+
+    <script>
+        function abrirMenu() {
+            var menu = document.getElementById("meuMenu");
+            menu.classList.toggle("ativo");
+        }
+    </script>
+
+</body>
+
+</html>
