@@ -103,6 +103,24 @@
             var menu = document.getElementById("meuMenu");
             menu.classList.toggle("ativo");
         }
+
+        document.querySelectorAll('.item-com-submenu > a').forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (window.innerWidth <= 900) {
+                    var parentLi = this.parentElement;
+                    
+                    if (!parentLi.classList.contains('aberto')) {
+                        e.preventDefault(); 
+                        
+                        document.querySelectorAll('.item-com-submenu').forEach(outro => {
+                            if (outro !== parentLi) outro.classList.remove('aberto');
+                        });
+
+                        parentLi.classList.add('aberto');
+                    }
+                }
+            });
+        });
     </script>
 
     <footer class="rodape">
