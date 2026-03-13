@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estação Criativa - Memória de Agulha</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<body>
+
+<header class="cabecalho">
+        <div class="logo-container">
+            <a href="index.html" class="link-logo">
+                <img src="assets/img/Arquivos_Site/logo c sombra-2x.png" alt="Logo Memória de Agulha" class="logo-circulo">
+                <span class="titulo-site">AMA - Associação Memória de Agulha</span>
+            </a>
+        </div>
+
+        <nav class="menu-navegacao" id="meuMenu">
+            <ul>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+
+                <li class="item-com-submenu">
+                    <a href="patrimonioImaterial.html">Patrimônio Imaterial ▾</a>
+                    <ul class="submenu">
+                        <li><a href="bainhaAberta.html">Bainha Aberta</a></li>
+                    </ul>
+                </li>
+                
+                <li class="item-com-submenu">
+                    <a href="estacaoCriativa.html">Estação Criativa ▾</a>
+                    <ul class="submenu">
+                        <li><a href="estacaoCriativa.html#produtos">Produtos</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div class="redes-sociais">
+            <a href="https://www.instagram.com/memoriadeagulha" target="_blank">
+                <img src="assets/icons/redesSociais/logo_instagram.svg" alt="Instagram">
+            </a>
+            <a href="https://www.youtube.com/@memoriadeagulha5497" target="_blank">
+                <img src="assets/icons/redesSociais/logo_youtube.svg" alt="Youtube">
+            </a>
+        </div>
+
+        <div class="menu-icon" onclick="abrirMenu()" style="cursor: pointer;">☰</div>
+    </header>    
+    <main>
+            <section class="banner-estacao">
+                <div class="banner-conteudo">
+                    <h1>Fale Conosco</h1>
+                    <p>Estamos de portas abertas para ouvir você.</p>
+                </div>
+            </section>
+
+            <div class="contato-layout">
+                <section class="seccao-formulario">
+                    <h2>Envie uma Mensagem</h2>
+                    <form action="#" method="POST" class="formulario-contato">
+                        <div class="grupo-form">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+                        </div>
+                        
+                        <div class="grupo-form">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                        </div>
+
+                        <div class="grupo-form">
+                            <label for="assunto">Assunto</label>
+                            <select id="assunto" name="assunto">
+                                <option value="duvida">Dúvida Geral</option>
+                                <option value="encomenda">Encomendas</option>
+                                <option value="oficinas">Oficinas e Cursos</option>
+                                <option value="outros">Outros</option>
+                            </select>
+                        </div>
+
+                        <div class="grupo-form">
+                            <label for="mensagem">Mensagem</label>
+                            <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Como podemos ajudar?"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+                    </form>
+                </section>
+
+                <section class="seccao-faq">
+                    <h2>Perguntas Frequentes (FAQ)</h2>
+                    
+                    <div class="faq-container">
+                        <details class="faq-item" name="faq">
+                            <summary>Vocês fazem envios para todo o Brasil?</summary>
+                            <p>Não ...</p>
+                        </details>
+
+                        <details class="faq-item" name="faq">
+                            <summary>Posso visitar a Estação Criativa?</summary>
+                            <p>Com certeza! Nosso espaço na praça da estação em Itabirito está de portas abertass! Adoraremos receber sua visita para conhecer e prosear.</p>
+                        </details>
+
+                        <details class="faq-item" name="faq">
+                            <summary>Como faço para participar das oficinas?</summary>
+                            <p>Divulgamos o calendário de oficinas em nossas redes sociais (Instagram). As vagas são limitadas, então recomendamos fazer a inscrição com antecedência pelos nossos canais de atendimento.</p>
+                        </details>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+    <script>
+        function abrirMenu() {
+            var menu = document.getElementById("meuMenu");
+            menu.classList.toggle("ativo");
+        }
+    </script>
+
+    <footer class="rodape">
+        <div class="rodape-conteudo">
+            <div class="rodape-coluna rodape-sobre">
+                <img src="assets/img/Arquivos_Site/logo c sombra-2x.png" alt="Memória de Agulha" class="logo-rodape">
+                <p>A Associação Memória de Agulha preserva técnicas têxteis tradicionais de Itabirito, gerando renda e fortalecendo a cultura local através das mãos de suas artesãs.</p>
+            </div>
+            <div class="rodape-coluna rodape-links">
+                <h4>Navegue</h4>
+                <ul>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="patrimonioImaterial.html">Patrimônio Imaterial</a></li>
+                    <li><a href="estacaoCriativa.html">Estação Criativa</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+            <div class="rodape-coluna rodape-contato">
+                <h4>Contato</h4>
+                <p><a href="mailto:memoriadeagulha@gmail.com">memoriadeagulha@gmail.com</a></p>
+                <p>+55 (31) 9 9999-9999</p>
+                <p>Praça Padre Bernardo Firmino, 10<br>São Gonçalo do Bação - Itabirito/MG<br>CEP: 35.459-000</p>
+            </div>
+            <div class="rodape-coluna rodape-redes">
+                <h4>Siga-nos</h4>
+                <div class="redes-links">
+                    <a href="https://www.instagram.com/memoriadeagulha" target="_blank">
+                        <img src="assets/icons/redesSociais/logo_instagram.svg" alt="Instagram">
+                    </a>
+                    <a href="https://www.youtube.com/@memoriadeagulha5497" target="_blank">
+                        <img src="assets/icons/redesSociais/logo_youtube.svg" alt="YouTube">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="rodape-copyright">
+            <p>© 2025 Memória de Agulha. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

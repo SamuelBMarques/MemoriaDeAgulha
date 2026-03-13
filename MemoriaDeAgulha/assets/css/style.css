@@ -1,6 +1,11 @@
 /* =========================================
    1. VARIÁVEIS DE COR E FONTE (Atualizadas)
    ========================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     --azul-principal: #3865C9;
     --branco: #ffffff;
@@ -743,3 +748,4 @@ h1, h2, h3, .titulo-site {
     .rodape-coluna { text-align: center; }
     .redes-links { justify-content: center; }
 }
+
