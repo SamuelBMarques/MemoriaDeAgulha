@@ -762,3 +762,96 @@ h1, h2, h3, .titulo-site {
     .rodape-coluna { text-align: center; }
     .redes-links { justify-content: center; }
 }
+
+/* =========================================
+   13. RESPONSIVIDADE (MOBILE)
+   ========================================= */
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem !important; }
+    h2 { font-size: 2rem !important; }
+    h3 { font-size: 1.5rem !important; }
+    
+    /* 2. Página Inicial */
+    .conteudo-texto {
+        padding: 50px 20px 80px 20px; 
+        align-items: center;
+        text-align: center;
+    }
+    
+    .conteudo-texto p {
+        max-width: 100%;
+    }
+
+    .quem-somos {
+        flex-direction: column; 
+    }
+
+    .quem-somos-esquerda, 
+    .quem-somos-direita {
+        padding: 50px 20px;
+        text-align: center; 
+    }
+
+    .link-saiba-mais {
+        align-self: center; 
+    }
+
+    .genealogia {
+        padding: 50px 20px;
+        justify-content: center;
+    }
+
+    .genealogia-conteudo {
+        width: 100%;
+        text-align: center; 
+    }
+
+    .cartao-integrante {
+        width: 100%; 
+        max-width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .intro-projetos {
+        padding: 50px 20px;
+    }
+
+    .projeto, 
+    .projeto:nth-child(even) {
+        flex-direction: column; 
+    }
+
+    .projeto-texto {
+        padding: 50px 20px;
+    }
+
+    .projeto-imagem {
+        width: 100%; 
+        height: auto;
+    }
+
+    .banner-conteudo h1 {
+        font-size: 2.2rem !important;
+    }
+
+    .sobre-estacao, 
+    .vitrine-produtos, 
+    .texto-patrimonio, 
+    .historia-tecnica, 
+    .video-destaque-tecnica, 
+    .galeria-tecnica {
+        padding: 40px 20px;
+    }
+
+    .contato-layout {
+        padding: 40px 20px;
+        flex-direction: column; 
+        gap: 40px;
+    }
+    
+   
+    .curva-s {
+        height: 60px;
+    }
+}
