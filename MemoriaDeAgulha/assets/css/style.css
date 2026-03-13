@@ -1,5 +1,5 @@
 /* =========================================
-   1. VARIÁVEIS DE COR E FONTE (Atualizadas)
+   1. VARIÁVEIS DE COR E FONTE
    ========================================= */
 
 html {
@@ -10,8 +10,8 @@ html {
     --azul-principal: #3865C9;
     --branco: #ffffff;
     --texto-escuro: #333333;
-    --fonte-titulo: 'Lora', serif; /* Nova fonte elegante e legível para títulos */
-    --fonte-corpo: 'Inter', sans-serif; /* Nova fonte limpa para textos */
+    --fonte-titulo: 'Lora', serif; 
+    --fonte-corpo: 'Inter', sans-serif; 
 }
 
 * {
@@ -36,13 +36,13 @@ h1, h2, h3, .titulo-site {
     justify-content: space-between;
     align-items: center;
     padding: 15px 50px;
-    position: relative; /* Essencial para o submenu funcionar sem empurrar a página */
+    position: relative; 
     z-index: 1000;
 }
 
 /* Esquerda: Logo */
 .logo-container {
-    flex: 1; /* Pega 1/3 do espaço */
+    flex: 1;
     display: flex;
     align-items: center;
 }
@@ -56,7 +56,7 @@ h1, h2, h3, .titulo-site {
 }
 
 .logo-circulo {
-    width: 60px; /* Tamanho otimizado para não alargar o menu */
+    width: 60px; 
     height: 60px;
     object-fit: cover;
     border-radius: 50%;
@@ -68,7 +68,6 @@ h1, h2, h3, .titulo-site {
     padding-left: 15px;
 }
 
-/* Centro: Menu de Navegação */
 .menu-navegacao {
     flex: 2; 
     display: flex;
@@ -82,8 +81,8 @@ h1, h2, h3, .titulo-site {
 .menu-navegacao > ul {
     display: flex;
     list-style: none;
-    gap: 25px; /* Espaçamento igual entre os itens */
-    justify-content: center; /* Mantém tudo perfeitamente centralizado */
+    gap: 25px;
+    justify-content: center; 
 }
 
 .menu-navegacao > ul > li {
@@ -98,8 +97,8 @@ h1, h2, h3, .titulo-site {
     padding: 10px 0;
     
     display: flex; 
-    align-items: center; /* Alinha o texto e a seta na mesma altura */
-    white-space: nowrap; /* Impede terminantemente que o texto ou a seta quebrem para a linha de baixo */
+    align-items: center; 
+    white-space: nowrap; 
     
     transition: color 0.2s;
 }
@@ -108,7 +107,6 @@ h1, h2, h3, .titulo-site {
     color: #FFD700;
 }
 
-/* Direita: Redes Sociais */
 .redes-sociais {
     flex: 1; 
     display: flex;
@@ -127,11 +125,29 @@ h1, h2, h3, .titulo-site {
     transform: translateY(-3px);
 }
 
+.item-com-submenu > a::after {
+    content: '';
+    display: inline-block;
+    width: 6px;       
+    height: 6px;      
+    border-right: 2px solid currentColor;  
+    border-bottom: 2px solid currentColor; 
+    transform: rotate(45deg); 
+    margin-left: 8px;
+    margin-bottom: 3px;
+    transition: transform 0.3s ease; 
+}
+
+.item-com-submenu:hover > a::after {
+    transform: rotate(225deg);
+    margin-bottom: -3px; 
+}
+
 /* =========================================
-   3. SUBMENUS (A Mágica Consertada)
+   3. SUBMENUS 
    ========================================= */
 .submenu {
-    display: none; /* Agora funcionará corretamente! */
+    display: none; 
     position: absolute; 
     top: 100%; 
     left: 0;
@@ -141,7 +157,7 @@ h1, h2, h3, .titulo-site {
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     padding: 10px 0;
     z-index: 1000;
-    list-style: none; /* Garante que não apareçam os pontinhos da lista */
+    list-style: none;
 }
 
 .submenu li {
@@ -157,7 +173,6 @@ h1, h2, h3, .titulo-site {
     background-color: rgba(255,255,255,0.1);
 }
 
-/* Mostra o menu quando passa o rato */
 .item-com-submenu:hover .submenu {
     display: block;
     animation: fadeIn 0.2s ease;
@@ -169,7 +184,7 @@ h1, h2, h3, .titulo-site {
 }
 
 /* =========================================
-   4. MENU MOBILE (Para Telemóveis)
+   4. MENU MOBILE 
    ========================================= */
 @media (max-width: 900px) {
     .cabecalho { padding: 15px 20px; }
@@ -198,7 +213,6 @@ h1, h2, h3, .titulo-site {
 
     .menu-navegacao.ativo { display: block; }
     
-    /* Correção do mobile também com o sinal de '>' */
     .menu-navegacao > ul { flex-direction: column; gap: 15px; }
     
     .submenu { 
@@ -748,4 +762,3 @@ h1, h2, h3, .titulo-site {
     .rodape-coluna { text-align: center; }
     .redes-links { justify-content: center; }
 }
-
