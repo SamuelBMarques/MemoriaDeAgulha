@@ -286,6 +286,13 @@ h1, h2, h3, .titulo-site {
     border-radius: 0;
 }
 
+.seccao-video-home {
+    background-color: #f9f9f9; 
+    padding: 80px 15%; 
+    display: flex;
+    justify-content: center;
+}
+
 /* QUEM SOMOS */
 .quem-somos {
     display: flex;
@@ -890,15 +897,61 @@ h1, h2, h3, .titulo-site {
     h2 { font-size: 2rem !important; }
     h3 { font-size: 1.5rem !important; }
     
-    /* 2. Página Inicial */
-    .conteudo-texto {
-        padding: 50px 20px 80px 20px; 
-        align-items: center;
-        text-align: center;
+    /* 1. O container geral perde a foto de fundo e fica branco */
+    .seccao-destaque {
+        background-image: none; 
+        background-color: var(--branco); 
+        flex-direction: column;
+        min-height: auto;
+        padding-bottom: 50px; /* Dá um respiro no final da seção */
     }
-    
+
+    /* 2. A div que era vazia vira a foto do topo */
+    .conteudo-imagem {
+        order: -1; /* Esta é a mágica: joga a foto para cima do texto! */
+        flex: none; /* Remove a proporção do computador */
+        width: 100%;
+        height: 280px; /* Altura do banner da foto (pode aumentar se quiser) */
+        background-image: url('../img/Arquivos_Site/15.png'); /* Colocamos a foto diretamente nela */
+        background-size: cover;
+        background-position: center;
+        border-radius: 0;
+    }
+
+    /* 3. A área de texto ganha um novo alinhamento */
+    .conteudo-texto {
+        flex: none;
+        width: 100%;
+        padding: 40px 20px 20px 20px;
+        background-color: transparent;
+        text-align: center;
+        gap: 0; /* Removemos o buraco grande entre os textos */
+    }
+
+    /* 4. Título solto e em destaque fora da caixa */
+    .conteudo-texto h1 {
+        color: var(--azul-principal);
+        font-size: 1.8rem !important;
+        line-height: 1.4;
+        margin-bottom: 30px; /* Espaço entre o título e a caixa branca */
+    }
+
+    /* 5. O parágrafo vira o "cartão flutuante" */
     .conteudo-texto p {
-        max-width: 100%;
+        background-color: var(--branco);
+        padding: 30px 25px;
+        border-radius: 15px; /* Bordas arredondadas do cartão */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Sombra elegante */
+        color: #555;
+        font-size: 1.05rem;
+        line-height: 1.6;
+        width: 95%; /* Quase a tela toda */
+        margin: 0 auto; /* Centraliza o cartão perfeitamente */
+    }
+
+    /* 6. Esconde a linha torta no mobile */
+    .curva-s {
+        display: none; 
     }
 
     .quem-somos {
@@ -969,10 +1022,10 @@ h1, h2, h3, .titulo-site {
         gap: 40px;
     }
     
-   
-    .curva-s {
-        height: 60px;
+    .seccao-video-home {
+        padding: 40px 20px; /* Reduz as margens no telemóvel para o vídeo ficar maior */
     }
+
 }
 
 /* =========================================
