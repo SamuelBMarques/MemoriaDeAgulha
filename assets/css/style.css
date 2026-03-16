@@ -256,7 +256,7 @@ h1, h2, h3, .titulo-site {
 
 .conteudo-texto {
     position: relative; 
-    flex: 1;
+    flex: 0.879;
     padding: 80px 100px;
     display: flex;
     flex-direction: column;
@@ -281,7 +281,7 @@ h1, h2, h3, .titulo-site {
 }
 
 .conteudo-imagem {
-    flex: 1;
+    flex: 1.121;
     background: transparent;
     border-radius: 0;
 }
@@ -563,7 +563,7 @@ h1, h2, h3, .titulo-site {
 
 .grade-produtos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 40px;
 }
 

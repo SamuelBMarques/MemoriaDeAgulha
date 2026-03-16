@@ -68,35 +68,12 @@
         <section class="vitrine-produtos" id="produtos">
             <h2>Nossas Peças</h2>
             
-            <div class="grade-produtos">
-                
-                <div class="cartao-produto">
-                    <img src="assets/img/produto-1.jpg" alt="Bolsa em Macramê" class="img-produto">
-                    <div class="info-produto">
-                        <h3>Bolsa Trem de Minas</h3>
-                        <p>Bolsa artesanal feita em macramê com fios de algodão cru. Inspirada nas tramas das antigas bagageiras dos vagões.</p>
-                    </div>
-                </div>
+            <div class="grade-produtos" id="vitrine-produtos-dinamica">
+                <p style="text-align: center; width: 100%; color: #666;">Carregando os produtos tecidos à mão...</p>
+            </div>
 
-                <div class="cartao-produto">
-                    <img src="assets/img/produto-2.jpg" alt="Toalha Bainha Aberta" class="img-produto">
-                    <div class="info-produto">
-                        <h3>Caminho de Mesa Bação</h3>
-                        <p>Peça delicada com bordado em bainha aberta, perfeita para decorar sua mesa com um toque de ancestralidade.</p>
-                    </div>
-                </div>
-
-                <div class="cartao-produto">
-                    <img src="assets/img/produto-3.jpg" alt="Estojo Costura" class="img-produto">
-                    <div class="info-produto">
-                        <h3>Estojo de Ofícios</h3>
-                        <p>Estojo prático em patchwork para guardar linhas e agulhas, feito com retalhos reaproveitados da comunidade.</p>
-                    </div>
-                </div>
-
-                </div>
         </section>
-        
+
         <section class="aviso-transparencia">
             <div class="aviso-conteudo">
                 <h3>Transparência nos nossos Projetos</h3>
@@ -131,6 +108,7 @@
             });
         });
     </script>
+
 
     <footer class="rodape">
         <div class="rodape-conteudo">
@@ -172,5 +150,54 @@
         </div>
     </footer>
 
+    <script>
+    const urlPlanilha = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQYbdi6LWpprCxaGghzaM0YV_KgVr4hezP0M1ScZnPfgQgQ8nRy8VRt5aV0V-I8KNY-aizpHcwOlEko/pub?output=tsv';
+
+    async function carregarProdutos() {
+        try {
+            // Busca os dados da planilha
+            const resposta = await fetch(urlPlanilha);
+            const dados = await resposta.text();
+
+            // Divide o texto em linhas
+            const linhas = dados.split('\n');
+            const vitrine = document.getElementById('vitrine-produtos-dinamica');
+            
+            // Limpa a mensagem de "Carregando..."
+            vitrine.innerHTML = ''; 
+
+            // Itera pelas linhas (começando do 1 para pular o cabeçalho)
+            for (let i = 1; i < linhas.length; i++) {
+                // Pula linhas em branco
+                if (!linhas[i].trim()) continue; 
+
+                // Como exportamos como TSV, dividimos as colunas pela tabulação (\t)
+                const [nome, descricao, imagem, preco] = linhas[i].split('\t');
+
+                // Monta o cartão do produto
+                const cartao = `
+                    <div class="cartao-produto">
+                        <img src="${imagem ? imagem.trim() : 'assets/img/placeholder.jpg'}" alt="${nome.trim()}" class="img-produto" onerror="this.src='assets/img/Arquivos_Site/logo c sombra-2x.png'">
+                        <div class="info-produto">
+                            <h3>${nome.trim()}</h3>
+                            <p>${descricao.trim()}</p>
+                            ${preco && preco.trim() ? `<p style="font-weight:bold; margin-top:15px; color:var(--azul-principal);">${preco.trim()}</p>` : ''}
+                        </div>
+                    </div>
+                `;
+                
+                // Injeta no HTML
+                vitrine.innerHTML += cartao;
+            }
+        } catch (erro) {
+            console.error('Erro ao carregar a planilha:', erro);
+            document.getElementById('vitrine-produtos-dinamica').innerHTML = 
+                '<p style="text-align: center; width: 100%; color: red;">Não foi possível carregar o catálogo no momento. Tente novamente mais tarde.</p>';
+        }
+    }
+
+    // Executa a função assim que a página carrega
+    carregarProdutos();
+    </script>
 </body>
 </html>
