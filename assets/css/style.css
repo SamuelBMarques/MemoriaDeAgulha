@@ -148,31 +148,38 @@ h1, h2, h3, .titulo-site {
 /* =========================================
    3. SUBMENUS 
    ========================================= */
-.submenu { 
-        display: none; 
-        position: static; 
-        box-shadow: none; 
-        background-color: transparent;
-        padding-left: 20px;
-        border-left: 2px solid rgba(255,255,255,0.3);
-        margin-top: 10px;
-    }
-
-    .item-com-submenu.aberto .submenu {
-        display: block;
-    }
+.submenu {
+    display: none;
+    position: absolute; /* Faz o menu flutuar sobre o conteúdo */
+    top: 100%; /* Posiciona exatamente abaixo do item principal */
+    left: 0;
+    background-color: var(--azul-principal); /* Fundo sólido para esconder o que está atrás */
+    min-width: 230px; /* Largura mínima para os textos caberem bem */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2); /* Sombra para dar profundidade */
+    padding: 10px 0;
+    z-index: 1000;
+    border-radius: 0 0 8px 8px; /* Leve arredondamento nas pontas inferiores */
+    margin-top: 0;
+}
 
 .submenu li {
     width: 100%;
 }
 
 .submenu li a {
-    padding: 10px 20px;
+    padding: 12px 20px;
     font-size: 0.95rem;
+    display: block; /* Ocupa toda a largura do submenu */
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* Linha divisória sutil entre os itens */
+}
+
+.submenu li:last-child a {
+    border-bottom: none; /* Remove a linha do último item */
 }
 
 .submenu li a:hover {
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255,255,255,0.15); /* Destaque ao passar o mouse */
+    color: #FFD700;
 }
 
 .item-com-submenu:hover .submenu {
@@ -184,7 +191,6 @@ h1, h2, h3, .titulo-site {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
 }
-
 /* =========================================
    4. MENU MOBILE 
    ========================================= */
@@ -967,4 +973,122 @@ h1, h2, h3, .titulo-site {
     .curva-s {
         height: 60px;
     }
+}
+
+/* =========================================
+   14. ESTILOS DA PÁGINA: TRANSPARÊNCIA
+   ========================================= */
+.seccao-transparencia {
+    background-color: #f9f9f9;
+    padding: 60px 10%;
+}
+
+.texto-intro-transparencia {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.texto-intro-transparencia h2 {
+    color: var(--azul-principal);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.texto-intro-transparencia p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.grade-documentos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.cartao-documento {
+    background-color: var(--branco);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--azul-principal);
+}
+
+.cartao-documento h3 {
+    color: var(--texto-escuro);
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.cartao-documento ul {
+    list-style: none;
+    padding: 0;
+}
+
+.cartao-documento li {
+    margin-bottom: 15px;
+}
+
+.link-download {
+    color: var(--azul-principal);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.link-download::before {
+    content: '📄'; /* Ícone de documento simples (pode trocar por um SVG se preferir) */
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.link-download:hover {
+    color: #D48C6A; /* Cor de destaque para o hover */
+    text-decoration: underline;
+}
+
+/* Aviso na página de Projetos */
+.aviso-transparencia {
+    background-color: #EBF0FA;
+    padding: 60px 10%;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.aviso-conteudo {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.aviso-conteudo h3 {
+    color: var(--azul-principal);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.aviso-conteudo p {
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.btn-transparencia {
+    display: inline-block;
+    background-color: var(--azul-principal);
+    color: var(--branco);
+    padding: 12px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.btn-transparencia:hover {
+    background-color: #2A4B9C;
 }
