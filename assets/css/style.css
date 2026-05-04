@@ -248,10 +248,8 @@ h1, h2, h3, .titulo-site {
 .seccao-destaque {
     display: flex;
     min-height: 80vh;
-    background-image: url('../img/Arquivos_Site/15.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    /* Removemos o background-image, size, position e repeat daqui */
+    background-color: var(--branco); /* Fundo branco como garantia */
 }
 
 .conteudo-texto {
@@ -282,10 +280,13 @@ h1, h2, h3, .titulo-site {
 
 .conteudo-imagem {
     flex: 1.121;
-    background: transparent;
     border-radius: 0;
+    
+    background-image: url('../img/Arquivos_Site/SGB-125.jpg');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
 }
-
 .seccao-video-home {
     background-color: #f9f9f9; 
     padding: 80px 15%; 
@@ -358,8 +359,8 @@ h1, h2, h3, .titulo-site {
    ========================================= */
 .genealogia {
     background-image: url('../img/Arquivos_Site/Genealogia.jpg'); 
-    background-size: cover;
-    background-position: left center;
+    background-size: contain;
+    background-position: right center;
     min-height: 80vh;
     display: flex;
     align-items: center;
@@ -642,9 +643,9 @@ h1, h2, h3, .titulo-site {
 }
 
 .banner-patrimonio-base {
-    background-image: url('../img/patrimonio-casa.jpg'); 
+    background-image: url('../img/Arquivos_Site/IMG_1548.jpg'); 
     background-size: cover;
-    background-position: center bottom;
+    background-position: center top;
     height: 60vh;
     width: 100%;
 }
