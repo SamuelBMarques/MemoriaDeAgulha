@@ -913,7 +913,7 @@ h1, h2, h3, .titulo-site {
         flex: none; /* Remove a proporção do computador */
         width: 100%;
         height: 280px; /* Altura do banner da foto (pode aumentar se quiser) */
-        background-image: url('../img/Arquivos_Site/15.png'); /* Colocamos a foto diretamente nela */
+        background-image: url('../img/Arquivos_Site/SGB-125.jpg'); /* Colocamos a foto diretamente nela */
         background-size: cover;
         background-position: center;
         border-radius: 0;
