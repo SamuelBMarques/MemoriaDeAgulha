@@ -1,13 +1,29 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estação Criativa - Memória de Agulha</title>
+    <meta name="description" content="Estação Criativa: o espaço da Associação Memória de Agulha na antiga estação de trem de Itabirito, onde expomos e vendemos peças de artesanato exclusivas.">
+    <link rel="icon" type="image/png" href="assets/img/Arquivos_Site/fav_icon.png">
+    <link rel="canonical" href="https://memoriadeagulha.com.br/estacaoCriativa.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Memória de Agulha">
+    <meta property="og:title" content="Estação Criativa - Memória de Agulha">
+    <meta property="og:description" content="Estação Criativa: o espaço da Associação Memória de Agulha na antiga estação de trem de Itabirito, onde expomos e vendemos peças de artesanato exclusivas.">
+    <meta property="og:image" content="https://memoriadeagulha.com.br/assets/img/Arquivos_Site/logo%20c%20sombra-2x.png">
+    <meta property="og:url" content="https://memoriadeagulha.com.br/estacaoCriativa.html">
+    <meta property="og:locale" content="pt_BR">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Estação Criativa - Memória de Agulha">
+    <meta name="twitter:description" content="Estação Criativa: o espaço da Associação Memória de Agulha na antiga estação de trem de Itabirito, onde expomos e vendemos peças de artesanato exclusivas.">
+    <meta name="twitter:image" content="https://memoriadeagulha.com.br/assets/img/Arquivos_Site/logo%20c%20sombra-2x.png">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
 <body>
 
 <header class="cabecalho">
@@ -50,7 +66,7 @@
             </a>
         </div>
 
-        <div class="menu-icon" onclick="abrirMenu()" style="cursor: pointer;">☰</div>
+        <button type="button" class="menu-icon" onclick="abrirMenu()" aria-label="Abrir menu" aria-controls="meuMenu" aria-expanded="false">☰</button>
     </header>
 
     <main>
@@ -68,9 +84,7 @@
         <section class="vitrine-produtos" id="produtos">
             <h2>Nossas Peças</h2>
             
-            <div class="grade-produtos" id="vitrine-produtos-dinamica">
-                <p style="text-align: center; width: 100%; color: #666;">Carregando os produtos tecidos à mão...</p>
-            </div>
+            <div class="grade-produtos" id="vitrine-produtos-dinamica" aria-live="polite"></div>
 
         </section>
 
@@ -87,7 +101,9 @@
     <script>
         function abrirMenu() {
             var menu = document.getElementById("meuMenu");
-            menu.classList.toggle("ativo");
+            var botao = document.querySelector(".menu-icon");
+            var aberto = menu.classList.toggle("ativo");
+            if (botao) botao.setAttribute("aria-expanded", aberto ? "true" : "false");
         }
 
         document.querySelectorAll('.item-com-submenu > a').forEach(item => {
@@ -151,52 +167,140 @@
     </footer>
 
     <script>
-    const urlPlanilha = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQYbdi6LWpprCxaGghzaM0YV_KgVr4hezP0M1ScZnPfgQgQ8nRy8VRt5aV0V-I8KNY-aizpHcwOlEko/pub?output=tsv';
+    // ==========================================================
+    // Vitrine de produtos
+    // ----------------------------------------------------------
+    // 1) Tenta ler o catálogo já pronto em assets/data/produtos.json
+    //    (gerado automaticamente por uma GitHub Action a partir da
+    //    planilha — rápido, e não depende do Google no momento
+    //    em que a pessoa visitante abre o site).
+    // 2) Se esse arquivo ainda não existir (ou falhar), cai de volta
+    //    para buscar a planilha publicada diretamente, do jeito que
+    //    já funcionava antes. Ou seja: nada quebra enquanto a Action
+    //    não estiver configurada.
+    // ==========================================================
 
-    async function carregarProdutos() {
+    const URL_PLANILHA = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQYbdi6LWpprCxaGghzaM0YV_KgVr4hezP0M1ScZnPfgQgQ8nRy8VRt5aV0V-I8KNY-aizpHcwOlEko/pub?output=tsv';
+    const URL_CATALOGO_LOCAL = 'assets/data/produtos.json';
+
+    // Número da associação para o botão "Falar no WhatsApp" (DDI+DDD+número, só dígitos).
+    // TODO: troque pelo número de verdade da Memória de Agulha antes de publicar.
+    const NUMERO_WHATSAPP = '5531999999999';
+
+    // Converte um link de compartilhamento do Google Drive
+    // (que é uma página, não a imagem) em um link de imagem direto.
+    function converterLinkImagem(url) {
+        if (!url) return '';
+        url = url.trim();
+        const porArquivo = url.match(/drive\.google\.com\/file\/d\/([^/]+)/);
+        const porId = url.match(/[?&]id=([^&]+)/);
+        const id = (porArquivo && porArquivo[1]) || (porId && porId[1]);
+        if (id) return `https://lh3.googleusercontent.com/d/${id}=w800`;
+        return url; // já era um link direto (Imgur, ImgBB, assets locais, etc.)
+    }
+
+    function textoParaLinkWhatsApp(nomeProduto) {
+        const mensagem = `Olá! Vi a peça "${nomeProduto}" no site da Memória de Agulha e queria saber mais.`;
+        return `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(mensagem)}`;
+    }
+
+    function mostrarEsqueleto(vitrine, quantidade = 6) {
+        vitrine.innerHTML = Array.from({ length: quantidade }, () => `
+            <div class="cartao-produto cartao-esqueleto" aria-hidden="true">
+                <div class="img-produto esqueleto-bloco"></div>
+                <div class="info-produto">
+                    <div class="esqueleto-bloco esqueleto-linha" style="width: 70%;"></div>
+                    <div class="esqueleto-bloco esqueleto-linha" style="width: 100%;"></div>
+                    <div class="esqueleto-bloco esqueleto-linha" style="width: 40%;"></div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function escaparHtml(texto) {
+        const div = document.createElement('div');
+        div.textContent = texto;
+        return div.innerHTML;
+    }
+
+    function montarCartao(produto) {
+        const imagem = converterLinkImagem(produto.imagem) || 'assets/img/Arquivos_Site/logo c sombra-2x.png';
+        const nome = escaparHtml(produto.nome.trim());
+        const descricao = escaparHtml((produto.descricao || '').trim());
+        const preco = escaparHtml((produto.preco || '').trim());
+
+        return `
+            <div class="cartao-produto">
+                <img src="${imagem}" alt="${nome}" class="img-produto" loading="lazy"
+                     onerror="this.onerror=null; this.src='assets/img/Arquivos_Site/logo c sombra-2x.png';">
+                <div class="info-produto">
+                    <h3>${nome}</h3>
+                    <p>${descricao}</p>
+                    ${preco ? `<p class="preco-produto">${preco}</p>` : ''}
+                    <a class="btn-whatsapp-produto" target="_blank" rel="noopener"
+                       href="${textoParaLinkWhatsApp(nome)}">Falar no WhatsApp</a>
+                </div>
+            </div>
+        `;
+    }
+
+    // Recebe o texto TSV da planilha e devolve uma lista de produtos,
+    // ignorando silenciosamente linhas em branco ou incompletas
+    // (uma linha ruim não pode mais derrubar a vitrine inteira).
+    function analisarTsv(tsv) {
+        const linhas = tsv.split('\n');
+        const produtos = [];
+
+        for (let i = 1; i < linhas.length; i++) {
+            const linha = linhas[i];
+            if (!linha || !linha.trim()) continue;
+
+            const [nome, descricao, imagem, preco] = linha.split('\t');
+            if (!nome || !nome.trim()) continue;
+
+            produtos.push({ nome, descricao, imagem, preco });
+        }
+        return produtos;
+    }
+
+    async function buscarProdutos() {
+        // Tenta primeiro o catálogo local (rápido e já tratado pela Action)
         try {
-            // Busca os dados da planilha
-            const resposta = await fetch(urlPlanilha);
-            const dados = await resposta.text();
-
-            // Divide o texto em linhas
-            const linhas = dados.split('\n');
-            const vitrine = document.getElementById('vitrine-produtos-dinamica');
-            
-            // Limpa a mensagem de "Carregando..."
-            vitrine.innerHTML = ''; 
-
-            // Itera pelas linhas (começando do 1 para pular o cabeçalho)
-            for (let i = 1; i < linhas.length; i++) {
-                // Pula linhas em branco
-                if (!linhas[i].trim()) continue; 
-
-                // Como exportamos como TSV, dividimos as colunas pela tabulação (\t)
-                const [nome, descricao, imagem, preco] = linhas[i].split('\t');
-
-                // Monta o cartão do produto
-                const cartao = `
-                    <div class="cartao-produto">
-                        <img src="${imagem ? imagem.trim() : 'assets/img/placeholder.jpg'}" alt="${nome.trim()}" class="img-produto" onerror="this.src='assets/img/Arquivos_Site/logo c sombra-2x.png'">
-                        <div class="info-produto">
-                            <h3>${nome.trim()}</h3>
-                            <p>${descricao.trim()}</p>
-                            ${preco && preco.trim() ? `<p style="font-weight:bold; margin-top:15px; color:var(--azul-principal);">${preco.trim()}</p>` : ''}
-                        </div>
-                    </div>
-                `;
-                
-                // Injeta no HTML
-                vitrine.innerHTML += cartao;
+            const resposta = await fetch(URL_CATALOGO_LOCAL, { cache: 'no-cache' });
+            if (resposta.ok) {
+                const produtos = await resposta.json();
+                if (Array.isArray(produtos) && produtos.length > 0) return produtos;
             }
         } catch (erro) {
-            console.error('Erro ao carregar a planilha:', erro);
-            document.getElementById('vitrine-produtos-dinamica').innerHTML = 
-                '<p style="text-align: center; width: 100%; color: red;">Não foi possível carregar o catálogo no momento. Tente novamente mais tarde.</p>';
+            console.warn('Catálogo local indisponível, tentando a planilha diretamente:', erro);
+        }
+
+        // Se não existir ainda (ou estiver vazio), busca a planilha ao vivo
+        const resposta = await fetch(URL_PLANILHA);
+        if (!resposta.ok) throw new Error(`Planilha respondeu com status ${resposta.status}`);
+        const tsv = await resposta.text();
+        return analisarTsv(tsv);
+    }
+
+    async function carregarProdutos() {
+        const vitrine = document.getElementById('vitrine-produtos-dinamica');
+        mostrarEsqueleto(vitrine);
+
+        try {
+            const produtos = await buscarProdutos();
+
+            if (produtos.length === 0) {
+                vitrine.innerHTML = '<p class="mensagem-vitrine">Ainda não há peças cadastradas no catálogo.</p>';
+                return;
+            }
+
+            vitrine.innerHTML = produtos.map(montarCartao).join('');
+        } catch (erro) {
+            console.error('Erro ao carregar os produtos:', erro);
+            vitrine.innerHTML = '<p class="mensagem-vitrine mensagem-erro">Não foi possível carregar o catálogo no momento. Tente novamente mais tarde.</p>';
         }
     }
 
-    // Executa a função assim que a página carrega
     carregarProdutos();
     </script>
 </body>

@@ -1,13 +1,29 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estação Criativa - Memória de Agulha</title>
+    <title>Contato - Memória de Agulha</title>
+    <meta name="description" content="Fale com a Associação Memória de Agulha: tire dúvidas, faça encomendas ou saiba mais sobre nossas oficinas em Itabirito, MG.">
+    <link rel="icon" type="image/png" href="assets/img/Arquivos_Site/fav_icon.png">
+    <link rel="canonical" href="https://memoriadeagulha.com.br/contato.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Memória de Agulha">
+    <meta property="og:title" content="Contato - Memória de Agulha">
+    <meta property="og:description" content="Fale com a Associação Memória de Agulha: tire dúvidas, faça encomendas ou saiba mais sobre nossas oficinas em Itabirito, MG.">
+    <meta property="og:image" content="https://memoriadeagulha.com.br/assets/img/Arquivos_Site/logo%20c%20sombra-2x.png">
+    <meta property="og:url" content="https://memoriadeagulha.com.br/contato.html">
+    <meta property="og:locale" content="pt_BR">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contato - Memória de Agulha">
+    <meta name="twitter:description" content="Fale com a Associação Memória de Agulha: tire dúvidas, faça encomendas ou saiba mais sobre nossas oficinas em Itabirito, MG.">
+    <meta name="twitter:image" content="https://memoriadeagulha.com.br/assets/img/Arquivos_Site/logo%20c%20sombra-2x.png">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
 <body>
 
 <header class="cabecalho">
@@ -50,7 +66,7 @@
             </a>
         </div>
 
-        <div class="menu-icon" onclick="abrirMenu()" style="cursor: pointer;">☰</div>
+        <button type="button" class="menu-icon" onclick="abrirMenu()" aria-label="Abrir menu" aria-controls="meuMenu" aria-expanded="false">☰</button>
     </header>    
     <main>
             <section class="banner-estacao">
@@ -63,7 +79,15 @@
             <div class="contato-layout">
                 <section class="seccao-formulario">
                     <h2>Envie uma Mensagem</h2>
-                    <form action="#" method="POST" class="formulario-contato">
+                    <form action="https://api.web3forms.com/submit" method="POST" class="formulario-contato" id="formulario-contato">
+                        <!-- Chave gratuita obtida em https://web3forms.com (só precisa do e-mail da associação, sem senha) -->
+                        <input type="hidden" name="access_key" value="COLE_AQUI_SUA_CHAVE_DO_WEB3FORMS">
+                        <input type="hidden" name="subject" value="Nova mensagem pelo site - Memória de Agulha">
+                        <input type="hidden" name="from_name" value="Site Memória de Agulha">
+
+                        <!-- Campo-armadilha: invisível para pessoas, mas robôs de spam costumam preenchê-lo -->
+                        <input type="text" name="nome_da_empresa" class="campo-invisivel" tabindex="-1" autocomplete="off">
+
                         <div class="grupo-form">
                             <label for="nome">Nome Completo</label>
                             <input type="text" id="nome" name="nome" required placeholder="Seu nome">
@@ -90,6 +114,7 @@
                         </div>
 
                         <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+                        <p id="status-formulario" class="status-formulario" role="status"></p>
                     </form>
                 </section>
 
@@ -117,9 +142,48 @@
         </main>
 
     <script>
+        const formularioContato = document.getElementById('formulario-contato');
+        const statusFormulario = document.getElementById('status-formulario');
+
+        if (formularioContato) {
+            formularioContato.addEventListener('submit', async function (evento) {
+                evento.preventDefault();
+
+                const botaoEnviar = formularioContato.querySelector('.btn-enviar');
+                botaoEnviar.disabled = true;
+                statusFormulario.textContent = 'Enviando...';
+                statusFormulario.className = 'status-formulario';
+
+                try {
+                    const resposta = await fetch(formularioContato.action, {
+                        method: 'POST',
+                        headers: { Accept: 'application/json' },
+                        body: new FormData(formularioContato),
+                    });
+                    const resultado = await resposta.json();
+
+                    if (resposta.ok && resultado.success) {
+                        statusFormulario.textContent = 'Mensagem enviada! Vamos responder em breve.';
+                        statusFormulario.classList.add('status-sucesso');
+                        formularioContato.reset();
+                    } else {
+                        throw new Error(resultado.message || 'Falha ao enviar');
+                    }
+                } catch (erro) {
+                    console.error('Erro ao enviar formulário de contato:', erro);
+                    statusFormulario.textContent = 'Não foi possível enviar agora. Tente novamente ou escreva para memoriadeagulha@gmail.com.';
+                    statusFormulario.classList.add('status-erro');
+                } finally {
+                    botaoEnviar.disabled = false;
+                }
+            });
+        }
+
         function abrirMenu() {
             var menu = document.getElementById("meuMenu");
-            menu.classList.toggle("ativo");
+            var botao = document.querySelector(".menu-icon");
+            var aberto = menu.classList.toggle("ativo");
+            if (botao) botao.setAttribute("aria-expanded", aberto ? "true" : "false");
         }
 
         document.querySelectorAll('.item-com-submenu > a').forEach(item => {

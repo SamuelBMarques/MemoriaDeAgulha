@@ -1,0 +1,32 @@
+name: Atualizar catálogo de produtos
+
+on:
+  schedule:
+    - cron: '0 */12 * * *'   # a cada 12 horas
+  workflow_dispatch:         # também dá pra rodar manualmente pelo botão "Run workflow" no GitHub
+
+permissions:
+  contents: write
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Buscar produtos da planilha e gerar produtos.json
+        run: node scripts/atualizar-produtos.mjs
+
+      - name: Publicar alterações (só se algo mudou)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/data/produtos.json
+          git diff --staged --quiet || git commit -m "Atualiza catálogo de produtos automaticamente"
+          git push
