@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "nome": "Produto Teste",
+    "descricao": "Produto que serve para testar se tudo está funcionando da melhor maneira possível",
+    "imagem": "https://drive.google.com/drive/u/0/folders/1JiMy3_Ol3QaLf3gh1TOhsT8tvaQUtS6B",
+    "preco": "1000 R$"
+  },
+  {
+    "nome": "Produto Teste 2",
+    "descricao": "Mais um teste",
+    "imagem": "",
+    "preco": "10,50 R$"
+  }
+]
